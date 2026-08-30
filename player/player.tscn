@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://player/player.gd" id="1_script"]
+[ext_resource type="Script" path="res://player/abilities/sprint_ability.gd" id="2_sprint"]
+[ext_resource type="Script" path="res://player/abilities/movement_ability.gd" id="3_movement"]
+[ext_resource type="Script" path="res://player/abilities/gravity_ability.gd" id="4_gravity"]
+[ext_resource type="Script" path="res://player/abilities/jump_ability.gd" id="5_jump"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1"]
+radius = 0.4
+height = 1.8
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_script")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_1")
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
+current = true
+
+[node name="Abilities" type="Node" parent="."]
+
+[node name="SprintAbility" type="Node" parent="Abilities" groups=["player_abilities"]]
+script = ExtResource("2_sprint")
+
+[node name="MovementAbility" type="Node" parent="Abilities" groups=["player_abilities"]]
+script = ExtResource("3_movement")
+
+[node name="GravityAbility" type="Node" parent="Abilities" groups=["player_abilities"]]
+script = ExtResource("4_gravity")
+
+[node name="JumpAbility" type="Node" parent="Abilities" groups=["player_abilities"]]
+script = ExtResource("5_jump")
