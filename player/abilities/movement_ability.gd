@@ -20,7 +20,7 @@ extends PlayerAbility
 ## the target each frame. This is exponential approach, which feels smooth.
 
 @export var air_control: float = 0.1
-@export var ground_deceleration: float = 8.0
+@export var ground_deceleration: float = 30.0
 @export var air_drag: float = 0.01
 
 func physics_update(player: Player, delta: float) -> void:
