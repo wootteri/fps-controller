@@ -15,6 +15,10 @@ extends CharacterBody3D
 
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+## Set by CrouchAbility to reflect current crouch state.
+## SprintAbility and JumpAbility check this to disable sprinting/jumping while crouched.
+var is_crouched: bool = false
+
 ## Reset to `speed` at the top of every physics frame; abilities like
 ## SprintAbility may raise it before MovementAbility reads it later the same
 ## frame (order is controlled by sibling order in player.tscn).

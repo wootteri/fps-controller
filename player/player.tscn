@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3]
+[gd_scene load_steps=8 format=3]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_script"]
 [ext_resource type="Script" path="res://player/abilities/sprint_ability.gd" id="2_sprint"]
 [ext_resource type="Script" path="res://player/abilities/movement_ability.gd" id="3_movement"]
 [ext_resource type="Script" path="res://player/abilities/gravity_ability.gd" id="4_gravity"]
 [ext_resource type="Script" path="res://player/abilities/jump_ability.gd" id="5_jump"]
+[ext_resource type="Script" path="res://player/abilities/crouch_ability.gd" id="6_crouch"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1"]
 radius = 0.4
@@ -24,6 +25,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 current = true
 
 [node name="Abilities" type="Node" parent="."]
+
+[node name="CrouchAbility" type="Node" parent="Abilities" groups=["player_abilities"]]
+script = ExtResource("6_crouch")
 
 [node name="SprintAbility" type="Node" parent="Abilities" groups=["player_abilities"]]
 script = ExtResource("2_sprint")

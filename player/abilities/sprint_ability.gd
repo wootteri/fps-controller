@@ -12,5 +12,5 @@ extends PlayerAbility
 
 
 func physics_update(player: Player, delta: float) -> void:
-	if Input.is_action_pressed("sprint"):
+	if Input.is_action_pressed("sprint") and not player.is_crouched:
 		player.current_speed *= sprint_multiplier

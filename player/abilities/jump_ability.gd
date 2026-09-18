@@ -10,5 +10,5 @@ extends PlayerAbility
 
 
 func physics_update(player: Player, delta: float) -> void:
-	if player.is_on_floor() and Input.is_action_just_pressed("jump"):
+	if player.is_on_floor() and not player.is_crouched and Input.is_action_just_pressed("jump"):
 		player.velocity.y = jump_velocity
