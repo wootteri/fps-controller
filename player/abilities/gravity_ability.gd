@@ -8,5 +8,10 @@ extends PlayerAbility
 ## a correctness requirement.
 
 func physics_update(player: Player, delta: float) -> void:
-	if not player.is_on_floor():
+	if player.is_on_floor():
+		# Reset the elapsed time counter so JumpAbility can grant coyote time
+		player.last_floor_contact_time = 0.0
+	else:
 		player.velocity.y -= player.gravity * delta
+		# Accumulate time since leaving the floor
+		player.last_floor_contact_time += delta

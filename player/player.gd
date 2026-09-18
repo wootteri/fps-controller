@@ -19,6 +19,11 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 ## SprintAbility and JumpAbility check this to disable sprinting/jumping while crouched.
 var is_crouched: bool = false
 
+## Running counter of seconds since the player last touched the floor.
+## Reset to 0.0 by GravityAbility while grounded; accumulated each frame
+## while airborne. JumpAbility uses it for coyote time.
+var last_floor_contact_time: float = 0.0
+
 ## Reset to `speed` at the top of every physics frame; abilities like
 ## SprintAbility may raise it before MovementAbility reads it later the same
 ## frame (order is controlled by sibling order in player.tscn).
